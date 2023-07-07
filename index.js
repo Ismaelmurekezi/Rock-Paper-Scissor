@@ -7,6 +7,7 @@ const getComputerChoice=()=> {
   const playRound=(playerSelection, computerSelection)=> {
     const player = playerSelection.toLowerCase();
     const computer = computerSelection.toLowerCase();
+    let string="Draw"
   
     if (
       (player === "rock" && computer === "paper") ||
@@ -26,17 +27,31 @@ const getComputerChoice=()=> {
         result: "win",
         message: `You win! ${playerSelection} wins against ${computerSelection}`
       };
-    } else {
+    } else if (
+        (player === "rock" && computer === "rock") ||
+        (player==="paper"&& computer==="paper") ||
+        (player==="scissor"&& computer==="scissor")
+    )
+        {
       return {
         result: "draw",
         message: `It's a draw!`
       };
+    }
+    else {
+        return {
+
+            result:alert("Please Enter among rock, paper or scissor only"),
+            message: `It's a draw! `
+        }
+       
     }
   }
   
   function game() {
     let playerScore = 0;
     let computerScore = 0;
+   
   
     for (let round = 1; round <= 5; round++) {
       const playerSelection = prompt(`Round ${round}: Enter your choice among Rock, Paper, or Scissor`);
@@ -54,13 +69,6 @@ const getComputerChoice=()=> {
   
     console.log(`\nGame Over!\nPlayer Score: ${playerScore}\nComputer Score: ${computerScore}`);
   
-    // if (playerScore > computerScore) {
-    //   console.log("Congratulations! You win the game!");
-    // } else if (playerScore < computerScore) {
-    //   console.log("Sorry, you lose the game.");
-    // } else {
-    //   console.log("The game ends in a draw.");
-    // }
     (playerScore> computerScore)?   console.log("Congratulations! You win the game!"):
     (playerScore < computerScore)?   console.log("Sorry, you lose the game."):
     console.log("The game ends in a draw.")
