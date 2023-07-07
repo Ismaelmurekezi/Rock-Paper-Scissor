@@ -42,7 +42,7 @@ const getComputerChoice=()=> {
         return {
 
             result:alert("Please Enter among rock, paper or scissor only"),
-            message: `It's a draw! `
+            message: `It's a draw!`
         }
        
     }
